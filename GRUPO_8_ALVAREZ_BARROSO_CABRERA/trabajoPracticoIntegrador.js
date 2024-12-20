@@ -1,3 +1,19 @@
+let libros = [{
+    id: 1, 
+    titulo: "como vender una casa embrujada", 
+    autor: "pepe",
+    anio: 2022,
+    genero: "terror",
+    disponible: true
+},
+{
+    id:2, 
+    titulo: "como vender una casa embrujada", 
+    autor: "pepe",
+    anio: 2024,
+    genero: "terror",
+    disponible: true
+}]
 /* Sistema de Gestión de Biblioteca
 Introducción
 El siguiente trabajo práctico integrador está diseñado para evaluar tus
@@ -72,7 +88,24 @@ Math para calcular y mostrar:
 ✓ Promedio de años de publicación de los libros.
 ✓ Año de publicación más frecuente.
 ✓ Diferencia en años entre el libro más antiguo y el más nuevo.
-8. Manejo de Cadenas
+*/
+function calcularEstadisticas(){
+    let anioDeLibrosAcumulasdos = 0  
+    for (let indiceLibros = 0 ; indiceLibros <= libros.length-1 ; indiceLibros++){
+        anioDeLibrosAcumulasdos += libros[indiceLibros].anio
+    } 
+    console.log("promedio de año de libros " , anioDeLibrosAcumulasdos/libros.length )
+    let anioMasViejo = libros[0].anio
+    let anioMasNuevo = libros[0].anio
+    for (let indiceLibros = 0 ; indiceLibros <= libros.length-1 ; indiceLibros++){
+        anioMasViejo = Math.min(anioMasViejo, libros[indiceLibros].anio)
+        anioMasNuevo = Math.max(anioMasNuevo, libros[indiceLibros].anio)
+    }
+console.log("el año del libro mas antiguo es: ", anioMasViejo , " y el año del libro mas nuevo es: ", anioMasNuevo);
+
+}
+calcularEstadisticas()
+/*8. Manejo de Cadenas
 a) Crear una función normalizarDatos() que utilice métodos de strings
 para:
 ✓ Convertir todos los títulos a mayúsculas.
