@@ -31,6 +31,43 @@ let libros = [{
     genero: "terror",
     disponible: true
 }]
+let usuarios =[{
+
+    id:1,
+    nombre:"georgina sanz",
+    email: "GEOrginasanz@gmail.com",
+    librosPrestados :"1"
+},
+{
+
+    id:2,
+    nombre:"vanina mateo",
+    email:"ninamateo@gmail.com",
+    librosPrestados :"4"
+
+},
+{
+    id:3,
+    nombre:"rocio paez",
+    email:"paezrocio@gmail.com",
+    librosPrestados :"8"
+
+},
+{
+    id:4,
+    nombre:"milena kalas",
+    email:"milenakalas@gmail.com",
+    librosPrestados :"3"
+
+},
+{
+    id:5,
+    nombre:"isis mora",
+    email:"moraisis@gmail.com",
+    librosPrestados :"9"
+
+
+}]
 /*2. Funciones de Gestión de Libros
 a) Implementar una función agregarLibro(id, titulo, autor, anio, genero)
 que agregue un nuevo libro al array libros.
@@ -100,8 +137,20 @@ a) Crear una función normalizarDatos() que utilice métodos de strings
 para:
 ✓ Convertir todos los títulos a mayúsculas.
 ✓ Eliminar espacios en blanco al inicio y final de los nombres de
-autores.*/
-/*✓ Formatear los emails de los usuarios a minúsculas.
+autores.
+✓ Formatear los emails de los usuarios a minúsculas. */
+
+function normalizarDatos (){
+    let librosMayuscula = libros[0].titulo.toUpperCase();
+    let NombresSinEspacio = usuarios[0].nombre.trimStart();
+    let emailMinuscula = usuarios[0].email.toLocaleLowerCase
+
+console.log(librosMayuscula);
+console.log(NombresSinEspacio);
+
+}
+normalizarDatos()
+/*
 9. Interfaz de Usuario por Consola
 a) Implementar una función menuPrincipal() que muestre un menú de
 opciones al usuario y permita interactuar con el sistema utilizando
