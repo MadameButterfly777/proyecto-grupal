@@ -143,10 +143,11 @@ autores.
 function normalizarDatos (){
     let librosMayuscula = libros[0].titulo.toUpperCase();
     let NombresSinEspacio = usuarios[0].nombre.trimStart();
-    let emailMinuscula = usuarios[0].email.toLocaleLowerCase
+    let emailMinuscula = usuarios[0].email.toLowerCase()
 
 console.log(librosMayuscula);
 console.log(NombresSinEspacio);
+console.log(emailMinuscula)
 
 }
 normalizarDatos()
