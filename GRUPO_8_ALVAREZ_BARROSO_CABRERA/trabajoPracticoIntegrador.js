@@ -91,10 +91,37 @@ usuario seleccionado.*/
 /*4. Sistema de Préstamos
 a) Desarrollar una función prestarLibro(idLibro, idUsuario) que marque
 un libro como no disponible y lo agregue a la lista de libros prestados
-del usuario.
+del usuario
 b) Implementar una función devolverLibro(idLibro, idUsuario) que
 marque un libro como disponible y lo elimine de la lista de libros
 prestados del usuario.*/
+
+function prestarLibro(libros, usuarios) {
+
+    let libro = libros.find(libro => libros.id === libros);
+    let usuario = usuarios.find(usuario => usuarios.id === usuarios);
+
+    if (!libro) {
+        return "Libro no encontrado.";
+    }
+    if (!usuario) {
+        return "Usuario no encontrado.";
+    }
+    if (!libro.disponible) {
+        return "Libro no disponible.";
+    }
+
+    libro.disponible = false;
+    usuario.librosPrestados.push(librosibro);
+    return "Libro prestado correctamente.";
+}
+
+console.log(prestarLibro(1, 2)); 
+console.log(libros);
+console.log(usuarios);
+    
+      
+
 /*5. Reportes
 a) Crear una función generarReporteLibros() que utilice métodos
 avanzados de arrays (.map(), .filter(), .reduce()) para generar un
