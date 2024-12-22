@@ -15,21 +15,80 @@ Cada usuario debe tener:
 ✓ nombre (string)
 ✓ email (string)
 ✓ librosPrestados (array de ids de libros).*/
-let libros = [{
+let libros =[{
+
     id: 1, 
-    titulo: "como vender una casa embrujada", 
-    autor: "pepe",
-    anio: 2022,
+    titulo: "la casa embrujada", 
+    autor: "mario fortunati",
+    anio: 2020,
     genero: "terror",
     disponible: true
+
 },
 {
-    id:2, 
-    titulo: "como vender una casa embrujada", 
-    autor: "pepe",
-    anio: 2024,
-    genero: "terror",
-    disponible: true
+id:2, 
+titulo: "como vender una casa embrujada", 
+autor: "mario fortunati ",
+anio: 2021,
+genero: "terror",
+disponible: true
+
+},
+{
+id:3,
+ titulo: "¿la casa sin fantasmas?", 
+autor: "mario fortunati ",
+anio: 2022,
+genero: "terror",
+disponible: true
+},
+{  id:4,
+titulo: "¿se vendio la casa?", 
+autor: "mario fortunati ",
+anio: 2023,
+genero: "terror",
+disponible: true
+},
+{
+id:5,
+titulo: "los fantasmas", 
+autor: "marco soldi",
+anio: 2020,
+genero: "suspenso",
+disponible: true
+},
+{
+id:6,
+titulo: "cazafantasmas", 
+autor: "marco soldi",
+anio: 2021,
+genero: "suspenso",
+disponible: true
+},
+{
+
+id:7,
+titulo: "la familia fantasma", 
+autor: "marco soldi",
+ anio: 2022,
+genero: "suspenso",
+disponible: true
+},
+{
+id:8,
+titulo: "fantasmas en la ciudad", 
+autor: "marco soldi",
+anio: 2023,
+genero: "suspenso",
+disponible: true
+},
+{
+id:10,
+titulo: "fantasmas vs humanos", 
+autor: "marco soldi",
+anio: 2024,
+genero: "suspenso",
+disponible:true
 }]
 let usuarios =[{
 
@@ -42,21 +101,21 @@ let usuarios =[{
 
     id:2,
     nombre:"vanina mateo",
-    email:"ninamateo@gmail.com",
+    email:"NINamateo@gmail.com",
     librosPrestados :"4"
 
 },
 {
     id:3,
     nombre:"rocio paez",
-    email:"paezrocio@gmail.com",
+    email:"PAEZrocio@gmail.com",
     librosPrestados :"8"
 
 },
 {
     id:4,
     nombre:"milena kalas",
-    email:"milenakalas@gmail.com",
+    email:"milenaAKAlas@gmail.com",
     librosPrestados :"3"
 
 },
@@ -141,13 +200,27 @@ autores.
 ✓ Formatear los emails de los usuarios a minúsculas. */
 
 function normalizarDatos (){
-    let librosMayuscula = libros[0].titulo.toUpperCase();
+    /*let librosMayuscula = libros[0].titulo.toUpperCase();
     let NombresSinEspacio = usuarios[0].nombre.trimStart();
-    let emailMinuscula = usuarios[0].email.toLowerCase()
+    let emailMinuscula = usuarios[0].email.toLowerCase();*/
+        for (let indiceLibros = 0; indiceLibros <= libros.length -1; indiceLibros++) {
+            // Convertir el título del libro a mayúsculas
+            let librosMayuscula = libros[indiceLibros].titulo.toUpperCase();
+            console.log(librosMayuscula);
+        }
+        for (let indiceLibros = 0; indiceLibros <= libros.length -1; indiceLibros++) {
+            //Elimina el espacio en el nombre de los autores
+            let NombresSinEspacio = libros[indiceLibros].autor.trim();
+            console.log(NombresSinEspacio);
+        }
+         for (let indiceUsuarios = 0; indiceUsuarios <= usuarios.length -1; indiceUsuarios++) {
+            // Elimina mayúsculas de los o
+             let emailMinuscula = usuarios[indiceUsuarios].email.toLowerCase();
+             console.log(emailMinuscula);
+        }
 
-console.log(librosMayuscula);
-console.log(NombresSinEspacio);
-console.log(emailMinuscula)
+
+
 
 }
 normalizarDatos()
