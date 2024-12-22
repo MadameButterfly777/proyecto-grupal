@@ -1,20 +1,7 @@
-
+const prompt = require('prompt-sync')();
 /* 
-1. Estructura de Datos
-a) Crear un array de objetos llamado libros que contenga al menos 10
-libros. Cada libro debe tener las siguientes propiedades:
-✓ id (número)
-✓ título (string),
-✓ autor (string),
-✓ año (número),
-✓ género (string),
-✓ disponible (booleano).
-b) Crear un array de objetos llamado usuarios con al menos 5 usuarios.
-Cada usuario debe tener:
-✓ id (número)
-✓ nombre (string)
-✓ email (string)
-✓ librosPrestados (array de ids de libros).*/
+1. Estructura de Datos*/
+
 let libros =[{
 
     id: 1, 
@@ -218,10 +205,6 @@ function normalizarDatos (){
              let emailMinuscula = usuarios[indiceUsuarios].email.toLowerCase();
              console.log(emailMinuscula);
         }
-
-
-
-
 }
 normalizarDatos()
 /*
@@ -232,6 +215,18 @@ prompt().
 b) El menú debe incluir opciones para todas las funcionalidades
 anteriores y utilizar estructuras de control (if, switch, ciclos) para
 manejar la lógica.*/
+function menuPrincipal(){
+    let menuPrincipalMail= prompt("Ingrese su E-mail").toLocaleLowerCase()
+    let menuPrincipalId = parseFloat(prompt("Ingrese su número de ID"))
+     switch (menuPrincipalMail, menuPrincipalId){
+        case usuarios :
+     }
+
+   
+console.log(menuPrincipalMail, menuPrincipalId );
+
+}
+menuPrincipal()
 /*10. Comentando mi código
 a) Se tomará como último punto a evaluar la correcta utilización de
 comentarios explicando paso por paso su código.
