@@ -228,7 +228,7 @@ function normalizarDatos (){
             console.log(NombresSinEspacio);
         }
          for (let indiceUsuarios = 0; indiceUsuarios <= usuarios.length -1; indiceUsuarios++) {
-            // Elimina mayúsculas de los o
+            // Elimina mayúsculas de los emails 
              let emailMinuscula = usuarios[indiceUsuarios].email.toLowerCase();
              console.log(emailMinuscula);
         }
