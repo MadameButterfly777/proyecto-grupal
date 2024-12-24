@@ -73,7 +73,7 @@ disponible: true
 id:10,
 titulo: "fantasmas vs humanos", 
 autor: "marco soldi",
-anio: 2024,
+anio: 2023,
 genero: "suspenso",
 disponible:true
 }]
@@ -141,7 +141,6 @@ del usuario
 b) Implementar una función devolverLibro(idLibro, idUsuario) que
 marque un libro como disponible y lo elimine de la lista de libros
 prestados del usuario.*/
-
 function prestarLibro(libros, usuarios) {
 
     let libro = libros.find(libro => libros.id === libros);
@@ -162,9 +161,9 @@ function prestarLibro(libros, usuarios) {
     return "Libro prestado correctamente.";
 }
 
-console.log(prestarLibro(1, 2)); 
-console.log(libros);
-console.log(usuarios);
+//console.log(prestarLibro(1, 2)); 
+//console.log(libros);
+//console.log(usuarios);
     
       
 
@@ -189,69 +188,112 @@ Math para calcular y mostrar:
 ✓ Año de publicación más frecuente.
 ✓ Diferencia en años entre el libro más antiguo y el más nuevo.
 */
+function contarAnios(anio){
+    let contador = 0
+    for (let indiceLibros = 0 ;indiceLibros <= libros.length -1 ; indiceLibros ++){
+        if (anio === libros[indiceLibros].anio){
+            contador++
+        }
+    }
+return contador 
+}
 function calcularEstadisticas(){
-    let anioDeLibrosAcumulasdos = 0  
+
+    let anioDeLibrosAcumulasdos = 0 
+     
     for (let indiceLibros = 0 ; indiceLibros <= libros.length-1 ; indiceLibros++){
         anioDeLibrosAcumulasdos += libros[indiceLibros].anio
-    } 
+    }
     console.log("promedio de año de libros " , anioDeLibrosAcumulasdos/libros.length )
+
+    let anioMasFrecuente = 0
+    let cantidadDeApariciones = 0
+
+    for (let indiceLibros = 0 ; indiceLibros <= libros.length-1 ; indiceLibros++){
+       let anioActual = libros[indiceLibros].anio
+       let cantidadActual = contarAnios(anioActual)
+       if (cantidadActual > cantidadDeApariciones){
+        anioMasFrecuente = anioActual 
+        cantidadDeApariciones = cantidadActual
+       }
+    } 
+    console.log("el año de publicacion mas frecuente fue  " , anioMasFrecuente )
     let anioMasViejo = libros[0].anio
     let anioMasNuevo = libros[0].anio
     for (let indiceLibros = 0 ; indiceLibros <= libros.length-1 ; indiceLibros++){
         anioMasViejo = Math.min(anioMasViejo, libros[indiceLibros].anio)
         anioMasNuevo = Math.max(anioMasNuevo, libros[indiceLibros].anio)
     }
-console.log("el año del libro mas antiguo es: ", anioMasViejo , " y el año del libro mas nuevo es: ", anioMasNuevo);
+    console.log("el año del libro mas antiguo es: ", anioMasViejo , " y el año del libro mas nuevo es: ", anioMasNuevo);
 
 }
 calcularEstadisticas()
-/*8. Manejo de Cadenas
-a) Crear una función normalizarDatos() que utilice métodos de strings
-para:
-✓ Convertir todos los títulos a mayúsculas.
-✓ Eliminar espacios en blanco al inicio y final de los nombres de
-autores.
-✓ Formatear los emails de los usuarios a minúsculas. */
 
+//8. Manejo de Cadenas
 function normalizarDatos (){
-    /*let librosMayuscula = libros[0].titulo.toUpperCase();
-    let NombresSinEspacio = usuarios[0].nombre.trimStart();
-    let emailMinuscula = usuarios[0].email.toLowerCase();*/
         for (let indiceLibros = 0; indiceLibros <= libros.length -1; indiceLibros++) {
-            // Convertir el título del libro a mayúsculas
             let librosMayuscula = libros[indiceLibros].titulo.toUpperCase();
-            console.log(librosMayuscula);
-        }
-        for (let indiceLibros = 0; indiceLibros <= libros.length -1; indiceLibros++) {
-            //Elimina el espacio en el nombre de los autores
             let NombresSinEspacio = libros[indiceLibros].autor.trim();
-            console.log(NombresSinEspacio);
+            console.log(librosMayuscula);
+            console.log(NombresSinEspacio);   console.log(emailMinuscula);
         }
-         for (let indiceUsuarios = 0; indiceUsuarios <= usuarios.length -1; indiceUsuarios++) {
-            // Elimina mayúsculas de los emails 
-             let emailMinuscula = usuarios[indiceUsuarios].email.toLowerCase();
-             console.log(emailMinuscula);
-        }
+        for (let indiceLibros = 0; indiceLibros <= libros.length -1; indiceLibros++){
+            let emailMinuscula = usuarios[indiceUsuarios].email.toLowerCase();
+            console.log(emailMinuscula);
+        } 
 }
 normalizarDatos()
-/*
-9. Interfaz de Usuario por Consola
-a) Implementar una función menuPrincipal() que muestre un menú de
-opciones al usuario y permita interactuar con el sistema utilizando
-prompt().
-b) El menú debe incluir opciones para todas las funcionalidades
-anteriores y utilizar estructuras de control (if, switch, ciclos) para
-manejar la lógica.*/
+
+//9. Interfaz de Usuario por Consola
 function menuPrincipal(){
-    let menuPrincipalMail= prompt("Ingrese su E-mail").toLocaleLowerCase()
-    let menuPrincipalId = parseFloat(prompt("Ingrese su número de ID"))
-     switch (menuPrincipalMail, menuPrincipalId){
-        case usuarios :
-     }
+    let tengoQueSalir = false
 
-   
-console.log(menuPrincipalMail, menuPrincipalId );
+    while(!tengoQueSalir){
+        console.log("hola bienvenido al programa de pepichulo, esta es la lista de cosas que podes hacer: ")
+        console.log('a) buscar libro')
+        console.log('b) agregar libro')
+        console.log('c) ordenar libros')
+        console.log('d) calcular estadisticas')
+        console.log('e) normalizarDatos')
+        console.log('f) Salir')
+        
+        let opcionElegida = prompt('Elegi lo que queres hacer: ');
 
+        switch(opcionElegida){
+            case "a":
+                //buscarLibro();
+                break;
+            case "b":
+                //agregarLibro()
+                break;
+            case "c":
+                break;
+            case "d":
+                calcularEstadisticas()
+                break;
+            case "e":
+                normalizarDatos();
+                break;
+            case "f":
+                tengoQueSalir = true;
+                break;
+            default:
+                console.log('opcion ingresada incorrecta, elija una de las correctas')
+        }
+
+        if (!tengoQueSalir){
+            let continuar = prompt('Desea continuar? Si/No : ');
+
+            if(continuar.toLowerCase() === 'si'){
+                tengoQueSalir = false;
+            }
+            else
+            {
+                tengoQueSalir = true;
+            }
+        }
+    }
+    
 }
 menuPrincipal()
 /*10. Comentando mi código
