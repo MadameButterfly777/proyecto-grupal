@@ -1,6 +1,6 @@
 const prompt = require('prompt-sync')();
-/* 
-1. Estructura de Datos*/
+
+//1. Estructura de Datos*/
 
 let libros =[{
 
@@ -161,33 +161,14 @@ function prestarLibro(libros, usuarios) {
     return "Libro prestado correctamente.";
 }
 
-//console.log(prestarLibro(1, 2)); 
-//console.log(libros);
-//console.log(usuarios);
+console.log(prestarLibro(1, 2)); 
+console.log(libros);
+console.log(usuarios);
     
       
 
-/*5. Reportes
-a) Crear una función generarReporteLibros() que utilice métodos
-avanzados de arrays (.map(), .filter(), .reduce()) para generar un
-reporte con la siguiente información:
-✓ Cantidad total de libros.
-✓ Cantidad de libros prestados.
-✓ Cantidad de libros por género.
-✓ Libro más antiguo y más nuevo*/
-/*6. Identificación Avanzada de libros
-a) Implementar una función librosConPalabrasEnTitulo() que identifique
-y muestre todos los libros cuyo título contiene más de una palabra
-(no títulos que contengan números ni otros caracteres).
-b) La función debe devolver un array con los títulos de esos libros y
-mostrarlo en la consola.*/
-/*7. Cálculos Estadísticos
-a) Desarrollar una función calcularEstadisticas() que utilice el objeto
-Math para calcular y mostrar:
-✓ Promedio de años de publicación de los libros.
-✓ Año de publicación más frecuente.
-✓ Diferencia en años entre el libro más antiguo y el más nuevo.
-*/
+// Reportes
+
 function contarAnios(anio){
     let contador = 0
     for (let indiceLibros = 0 ;indiceLibros <= libros.length -1 ; indiceLibros ++){
@@ -261,7 +242,7 @@ function menuPrincipal(){
 
         switch(opcionElegida){
             case "a":
-                //buscarLibro();
+                prestarLibro();
                 break;
             case "b":
                 //agregarLibro()
